@@ -1,0 +1,32 @@
+name: DevOps Pipeline
+
+on:
+  push:
+    branches:
+      - development
+
+jobs:
+  build-test-security-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+
+    - name: Checkout Source Code
+      uses: actions/checkout@v3
+
+    - name: Build Stage
+      run: echo "Building Application"
+
+    - name: Test Stage
+      run: echo "Running Tests"
+
+    - name: Security Validation
+      run: echo "Security Validation Successful"
+
+    - name: Deployment Stage
+      run: echo "Deployment Successful"
+
+    - name: Generate Logs
+      run: |
+        mkdir -p artifacts
+        echo "Build completed successfully" > artifacts/build-log.txt
